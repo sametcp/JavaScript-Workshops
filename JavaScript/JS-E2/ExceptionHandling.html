@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <p>Please input a number between 5 and 10 :</p>
+
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">Test Input</button>
+
+        <p id="message"></p>
+
+        <script>
+            function myFunction(){
+                var message, x;
+                message = document.getElementById("message");
+                message.innerHTML = "";  // her çalıştığında message id'li olanın değerini silmek için
+                x = document.getElementById("demo").value;
+                try{
+                    if (x == "") throw " is empty";
+                    if (isNaN(x)) throw " is not a number"
+                    if(x > 10) throw " is too high"
+                    if(x<5) throw " is too low"
+                }
+                catch (err){  // err = throw
+                    message.innerHTML = "Input" + err
+                    //alert(err)
+                }
+                finally{  //try-catch bitti, en sonda bu yapılsın. try-catch bloklarında ne olursa olsun finally çalışır.
+                    document.getElementById("demo").value = "";
+                }
+            }
+        </script>
+    </body>
+</html>

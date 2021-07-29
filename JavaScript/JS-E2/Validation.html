@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p>Enter a number</p>
+        <!-- type, min, max validation kurallarım -->
+        <!-- <input id="numberBox" type="number" min="10" max="100"> -->
+
+        <!-- alfanumerik 3 karakter gir dedik(ddd mesela). alfanümerik = harf. nümerik, sayısal olmayan -->
+        <!-- <input id="numberBox" type="text" pattern="[A-Za-z]{3}"> -->
+
+        <!-- max 5 karakter girilebilir dedik -->
+        <!-- <input id="numberBox" type="text" maxlength="3" pattern="[A-Za-z]{3}"> -->
+        
+        <!-- verilen value değerini (value olmak zorunda değil) değiştiremiyorum. sadece okuyabilirim. -->
+        <input id="numberBox" type="text" value="abc" readonly>
+
+        <button onclick="validate()">Send</button>
+        <p id="demo"></p>
+
+        <!-- bu form post edildiğinide hiç bir şekilde validasyon uygulama demek. -->
+        <form novalidate>
+
+        </form>
+
+        <script>
+            function validate(){
+                var numberEntered = document.getElementById("numberBox");
+                
+                // checkValidity() metotu js'den gelir. girilen değerin kurallara uygun olup olmadığını check eder.
+                // true veya false döner.
+                if(numberEntered.checkValidity() == false)
+                {
+                    // validationMessage özelliği de js'den gelir. hata varsa validation mesajını gösteren değeri return
+                    // edip yazdırıyoruz.
+                    document.getElementById("demo").innerHTML = numberEntered.validationMessage;
+                }
+                else
+                {
+                    document.getElementById("demo").innerHTML = "Input OK";
+                }
+            }
+        </script>
+    </body>
+</html>

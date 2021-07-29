@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8"/>
+        <title>JavaScript!</title>
+        <style type="text/css">
+            .intro1{
+                background-color: red;
+            }
+            
+            .intro2{
+                background-color: violet;
+            }
+
+            .intro3{
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+
+        <p class="intro1" id="intro1">My first paragraph...</p>
+        <p class="intro2" id="intro2">My second paragraph...</p>
+        <p class="intro3" id="intro3">My third paragraph...</p>
+
+        <ul>
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>List item 4</li>
+            <li>List item 5</li>
+        </ul>
+
+        <p id="message"></p>
+        <input name="customerName" type="text" value="Samet Berk Şimşek"/>
+
+        <h1>Try it</h1>
+        <h1 id="tryIt">Try it</h1>
+
+        <p id="nodes">Node value</p>
+
+        <div id="div1">
+            <p id="p1">This is p1</p>
+            <p id="p2">This is p2</p>
+        </div>
+        
+        <script type="text/javascript">
+
+            // getElementById kısmı
+
+            // alert("Reading with getElementById")
+            // var firstParagraph = document.getElementById("intro1");
+            // var message = document.getElementById("message");
+            // message.innerHTML = "Message : " + firstParagraph.innerHTML
+
+
+
+
+            // // adından da anlaşılacağı gibi element(s). yani bu fonksiyon bir array döndürücek. ul tagindeki bütün
+            // // elemanları getiricek. 1 tane ul var o da arrayin ilk elemanı.
+            // var allUnorderedLists = document.getElementsByTagName("ul");
+            // var unorderedList = allUnorderedLists[0];
+
+
+
+
+            // var allListItems = unorderedList.getElementsByTagName("li");  // li vs. html objesidir.
+            // for(var i = 0; i < allListItems.length; i++){
+            //     alert(allListItems[i].firstChild.data)
+            // }
+
+
+
+
+            // var allItemsWithClassName = document.getElementsByClassName("intro1");
+            // alert(allItemsWithClassName[0].innerHTML)
+
+
+
+
+            // // intro2 kullanan bütün p'lere erişmek istiyorsam;
+            // var allItemsWithSelector = document.querySelectorAll("p.intro2");
+            // alert(allItemsWithSelector[0].innerHTML);
+
+
+
+
+            // // HTML tag'lerine ismiyle erişmek için; customerName name'ine sahip bütün elemanları getiricek array içinde
+            // var names = document.getElementsByName("customerName");
+            // alert(names[0].value)
+
+
+
+
+            // // js ile html taglerine sonradan eventler ekleyebilirim.
+            // // "click" eventi olduğunda changeColor adlı fonksiyonumu çağırmak istiyorum id'si tryIt olanlar için.
+            // document.getElementById("tryIt").addEventListener("click",changeColor)
+
+            // function changeColor(){
+            //     // intro1 id'sine sahip olan tag'imin stilini değiştirebilirim. (id, tek bir tag'e ait kimliktir.)
+            //     document.getElementById("intro1").style.color = "blue"
+            // }
+
+            // // alttaki komut, üstteki event'i kaldırmaya yarıyor. yani bu 2 eventi kullanırsak bastığımızda bir şey
+            // // olmicak gibi görünüyor fakat yukarıda ekledik, alttaki işlem ile eventi kaldırdık. yani elde var 0
+            // document.getElementById("tryIt").removeEventListener("click",changeColor)
+
+
+
+            // // childNode[0] = burda text node. 
+            // var nodeText = document.getElementById("nodes").childNodes[0].nodeValue
+            // alert(nodeText)
+
+            var heading = document.createElement("h2");
+            var node = document.createTextNode("Hello JavaScript")
+            // tam bu noktada, oluşturduğumuz elementin içerisine bir node'u eklemek için =>
+            heading.appendChild(node)
+
+            var div1 = document.getElementById("div1");
+            var p2 = document.getElementById("p2")
+            div1.insertBefore(heading,p2)  // div1 içinde, p2'den önce(insertBefore) p2'yi ekle edik.
+
+            // daha önce oluşturduğumuz tag'i kaldırmak için; (mesela p2'yi kaldırıcam)
+            alert("Removing P2")
+            div1.removeChild(p2)
+            
+
+            // bir HTML tag'ini başka bir tag ile değiştirmek
+            alert("Replacing")
+            var heading2 = document.createElement("h1");
+            var node2 = document.createTextNode("This is a replacement")
+            heading2.appendChild(node2)
+
+            var p1 = document.getElementById("p1");
+            div1.replaceChild(heading2,p1)
+
+        </script>
+    </body>
+</html>

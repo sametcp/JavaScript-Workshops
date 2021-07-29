@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+
+        <script>
+            //var students = new Array("Samet","Berk","Şimşek");
+            var students = ["Samet", "Berk", 25];
+            //document.getElementById("demo").innerHTML = students;
+            students[1] = "Emir"
+            students.push("Mert")
+            students[students.length] = "Şimşek"
+            document.getElementById("demo").innerHTML = students[4];
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <!-- <script src="LooseTyping.js"></script> -->
+            <script src="DynamicTyping.js"></script>
+        <title></title>
+    </head>
+    <body>
+        <label id="objectDemo"></label>
+        <script>
+            var student = {firstName: "Samet", lastName: "Şimşek", city: "Samsun"};
+            student.lastName = "Berk"
+            document.getElementById("objectDemo").innerHTML = student.lastName;
+        </script>
+    </body>
+</html>
